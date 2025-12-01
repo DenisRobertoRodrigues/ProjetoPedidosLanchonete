@@ -11,6 +11,14 @@ aplicação para gerenciar uma lanchonete, com funcionalidades de cardápio, ger
 # Instalação
 O Processo de instalação é simples, o próprio executável da aplicação, na primeira execução, procura se já existe o banco de dados criado e configurado para a aplicação, se não tiver, a própria aplicação cria o banco com base no dicionário de dados embutido no código, e cria o arquivo de configuração ( Pedidos.ini ) onde é possível apontar para o banco de dados, após esse arquivo de configuração criado, é possível mudar o banco de dados para qualquer diretório, e ajustar o caminho do mesmo na propriedade "Database"
 
+Usuário com perfil de administrador: 
+email: ADMIN@admin.com.br
+senha: 123456
+
+Usuário com perfil de operador:
+email: USUARIO@usuario.com.br
+senha: 654321
+
 # Sobre o Projeto
 Aplicação foi desenvolvida utilizando o Delphi Community Edition e banco SQLite, utilizandos componentes nativos da ferramenta, sem dependencia de componentes de terceiros, e com grande rastreabilidade via logs, algo que considero essencial para manutenção de aplicativos.
 
