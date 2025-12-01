@@ -6,4 +6,4 @@ aplicação para gerenciar uma lanchonete, com funcionalidades de cardápio, ger
 
 <img width="1896" height="988" alt="image" src="https://github.com/user-attachments/assets/f7971488-251b-4736-a722-0b576f13963d" />
 
-<img width="728" height="658" alt="image" src="https://github.com/user-attachments/assets/6a14853b-2463-4536-8abd-59f98667866e" />
+<img width="1119" height="749" alt="image" src="https://github.com/user-attachments/assets/6667f383-14ea-436b-b05f-415ce5cc5416" />
