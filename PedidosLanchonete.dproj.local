@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2025/11/28 08:46:11.000.697,=C:\Users\denis\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2025/11/28 08:47:27.000.949,C:\Users\denis\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.dfm=C:\Projetos\ProjetoPedidosLanchonete\UMenu.dfm</Transaction>
+    <Transaction>2025/11/28 08:47:27.000.949,C:\Users\denis\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.pas=C:\Projetos\ProjetoPedidosLanchonete\UMenu.pas</Transaction>
+    <Transaction>2025/11/28 08:47:40.000.027,C:\Users\denis\OneDrive\Documentos\Embarcadero\Studio\Projects\Project1.dproj=C:\Projetos\ProjetoPedidosLanchonete\PedidosLanchonete.dproj</Transaction>
+    <Transaction>2025/11/28 08:49:14.000.133,=C:\Projetos\ProjetoPedidosLanchonete\Unit1.pas</Transaction>
+    <Transaction>2025/11/28 08:49:48.000.284,C:\Projetos\ProjetoPedidosLanchonete\Unit1.pas=C:\Projetos\ProjetoPedidosLanchonete\ULog.pas</Transaction>
+    <Transaction>2025/11/28 08:50:33.000.130,=C:\Projetos\ProjetoPedidosLanchonete\Unit1.pas</Transaction>
+    <Transaction>2025/11/28 08:51:05.000.656,C:\Projetos\ProjetoPedidosLanchonete\Unit1.pas=C:\Projetos\ProjetoPedidosLanchonete\UDMDTO.pas</Transaction>
+    <Transaction>2025/11/28 08:51:05.000.656,C:\Projetos\ProjetoPedidosLanchonete\Unit1.dfm=C:\Projetos\ProjetoPedidosLanchonete\UDMDTO.dfm</Transaction>
+    <Transaction>2025/11/28 10:01:41.000.814,=C:\Projetos\ProjetoPedidosLanchonete\conf\SQLiteInstaller.pas</Transaction>
+    <Transaction>2025/11/28 10:04:57.000.564,C:\Projetos\ProjetoPedidosLanchonete\UMenu.dfm=C:\Projetos\ProjetoPedidosLanchonete\UInicializacao.dfm</Transaction>
+    <Transaction>2025/11/28 10:04:57.000.564,C:\Projetos\ProjetoPedidosLanchonete\UMenu.pas=C:\Projetos\ProjetoPedidosLanchonete\UInicializacao.pas</Transaction>
+    <Transaction>2025/11/29 10:57:13.858,=C:\Projetos\ProjetoPedidosLanchonete\conf\uCriptografia.pas</Transaction>
+    <Transaction>2025/11/29 11:01:20.374,=C:\Projetos\ProjetoPedidosLanchonete\uFormUsuario.pas</Transaction>
+    <Transaction>2025/11/29 11:01:20.413,=C:\Projetos\ProjetoPedidosLanchonete\uUsuario.pas</Transaction>
+    <Transaction>2025/11/29 11:01:20.460,=C:\Projetos\ProjetoPedidosLanchonete\uUsuarioDAO.pas</Transaction>
+    <Transaction>2025/11/29 13:35:31.170,=C:\Projetos\ProjetoPedidosLanchonete\uCliente.pas</Transaction>
+    <Transaction>2025/11/29 13:35:31.227,=C:\Projetos\ProjetoPedidosLanchonete\uClienteDAO.pas</Transaction>
+    <Transaction>2025/11/29 13:35:31.419,=C:\Projetos\ProjetoPedidosLanchonete\uFormCliente.pas</Transaction>
+    <Transaction>2025/11/29 14:21:53.227,=C:\Projetos\ProjetoPedidosLanchonete\uFormIngrediente.pas</Transaction>
+    <Transaction>2025/11/29 14:21:53.260,=C:\Projetos\ProjetoPedidosLanchonete\uIngrediente.pas</Transaction>
+    <Transaction>2025/11/29 14:21:53.301,=C:\Projetos\ProjetoPedidosLanchonete\uIngredienteDAO.pas</Transaction>
+    <Transaction>2025/11/29 14:42:04.145,=C:\Projetos\ProjetoPedidosLanchonete\uFormProduto.pas</Transaction>
+    <Transaction>2025/11/29 14:42:04.189,=C:\Projetos\ProjetoPedidosLanchonete\uProduto.pas</Transaction>
+    <Transaction>2025/11/29 14:42:04.237,=C:\Projetos\ProjetoPedidosLanchonete\uProdutoDAO.pas</Transaction>
+    <Transaction>2025/11/30 11:17:11.413,=C:\Projetos\ProjetoPedidosLanchonete\uFormMenu.pas</Transaction>
+    <Transaction>2025/12/01 08:47:25.216,=C:\Projetos\ProjetoPedidosLanchonete\uFormPedido.pas</Transaction>
+    <Transaction>2025/12/01 08:47:25.405,=C:\Projetos\ProjetoPedidosLanchonete\uFormPersonalizarProduto.pas</Transaction>
+    <Transaction>2025/12/01 08:47:25.471,=C:\Projetos\ProjetoPedidosLanchonete\uPedido.pas</Transaction>
+    <Transaction>2025/12/01 09:24:51.354,C:\Projetos\ProjetoPedidosLanchonete\uFormPedido.pas=</Transaction>
+    <Transaction>2025/12/01 09:24:51.433,C:\Projetos\ProjetoPedidosLanchonete\uFormPersonalizarProduto.pas=</Transaction>
+    <Transaction>2025/12/01 09:24:51.481,C:\Projetos\ProjetoPedidosLanchonete\uPedido.pas=</Transaction>
+    <Transaction>2025/12/01 09:26:40.597,=C:\Projetos\ProjetoPedidosLanchonete\uFormPedido.pas</Transaction>
+    <Transaction>2025/12/01 09:26:40.676,=C:\Projetos\ProjetoPedidosLanchonete\uPedido.pas</Transaction>
+    <Transaction>2025/12/01 09:26:40.735,=C:\Projetos\ProjetoPedidosLanchonete\uPedidoDAO.pas</Transaction>
+    <Transaction>2025/12/01 09:28:31.671,=C:\Projetos\ProjetoPedidosLanchonete\uFormPersonalizarProduto.pas</Transaction>
+    <Transaction>2025/12/01 09:32:52.359,C:\Projetos\ProjetoPedidosLanchonete\uFormPedido.pas=</Transaction>
+    <Transaction>2025/12/01 09:33:03.566,=C:\Projetos\ProjetoPedidosLanchonete\uFormPedido.pas</Transaction>
+  </Transactions>
+</BorlandProject>
