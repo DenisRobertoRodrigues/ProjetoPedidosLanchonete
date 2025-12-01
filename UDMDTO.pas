@@ -26,7 +26,7 @@ type
 
   TFDConexaoHelper = class helper for TFDConnection
   public
-    function ExecutarSQL(const ASQL: String; ALogSincrono: boolean = False): Boolean;
+    function ExecutarSQL(const ASQL: String; ALogAssincrono: boolean = False): Boolean;
   end;
 
 var
@@ -92,7 +92,7 @@ end;
 
 { TFDConexaoHelper }
 
-function TFDConexaoHelper.ExecutarSQL(const ASQL: String; ALogSincrono: boolean = False): Boolean;
+function TFDConexaoHelper.ExecutarSQL(const ASQL: String; ALogAssincrono: boolean = False): Boolean;
 begin
   Result := False;
   try
@@ -100,8 +100,8 @@ begin
   except
     on E: Exception do
     begin
-      if ALogSincrono then
-        AppLog.RegistraLog(Format('Erro ao executar comando SQL: %s - %s',[ASQL, E.Message]), ALogSincrono)
+      if ALogAssincrono then
+        AppLog.RegistraLog(Format('Erro ao executar comando SQL: %s - %s',[ASQL, E.Message]), ALogAssincrono)
       else AppLog.RegistraLog(Format('Erro ao executar comando SQL: %s - %s',[ASQL, E.Message]));
       Result := False;
     end;

@@ -12,21 +12,16 @@ uses
 type
   TProdutoDAO = class
   private
-    FConnection: TFDConnection;
     procedure SalvarIngredientes(Produto: TProduto);
     procedure CarregarIngredientes(Produto: TProduto);
     procedure RemoverTodosIngredientes(IDProduto: Integer);
   public
-    constructor Create(AConnection: TFDConnection);
-    
     function Inserir(Produto: TProduto): Boolean;
     function Atualizar(Produto: TProduto): Boolean;
     function Excluir(ID: Integer): Boolean;
     function BuscarPorID(ID: Integer): TProduto;
     function BuscarPorNome(const Nome: string): TProduto;
     function ListarTodos(ApenasAtivos: Boolean = True): TObjectList<TProduto>;
-    
-    property Connection: TFDConnection read FConnection write FConnection;
   end;
 
 implementation
@@ -34,12 +29,6 @@ implementation
 { TProdutoDAO }
 
 uses UDMDTO;
-
-constructor TProdutoDAO.Create(AConnection: TFDConnection);
-begin
-  inherited Create;
-  FConnection := AConnection;
-end;
 
 function TProdutoDAO.Inserir(Produto: TProduto): Boolean;
 var

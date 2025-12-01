@@ -1,4 +1,4 @@
-unit uIngrediente;
+﻿unit uIngrediente;
 
 interface
 
@@ -93,5 +93,6 @@ function TIngrediente.TemImagem: Boolean;
 begin
   Result := (FImagem <> nil) and (FImagem.Size > 0);
 end;
+
 
 end.

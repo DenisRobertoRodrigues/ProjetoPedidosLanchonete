@@ -14,8 +14,6 @@ type
     procedure InserirIngredientesAdicionais(IDPedido: Integer; Item: TItemPedido);
 
   public
-    constructor Create(AConnection: TFDConnection);
-
     function SalvarPedido(Pedido: TPedido): Integer;
     function BuscarPedido(ID: Integer): TPedido;
     function ListarPedidosCliente(IDCliente: Integer): TObjectList<TPedido>;
@@ -28,12 +26,6 @@ implementation
 { TPedidoDAO }
 
 uses UDMDTO;
-
-constructor TPedidoDAO.Create(AConnection: TFDConnection);
-begin
-  inherited Create;
-
-end;
 
 function TPedidoDAO.SalvarPedido(Pedido: TPedido): Integer;
 var
@@ -215,10 +207,10 @@ begin
     for Ingrediente in Item.IngredientesPersonalizados do
     begin
       if Ingrediente.Removido then
-        ValorFinal := -Ingrediente.ValorIngrediente // Negativo para desconto
+        ValorFinal := -Ingrediente.ValorIngrediente
       else
-        ValorFinal := Ingrediente.ValorIngrediente;  // Positivo para adicional
-      
+        ValorFinal := Ingrediente.ValorIngrediente;
+
       Query.SQL.Clear;
       Query.SQL.Add('INSERT INTO TB_PEDIDOS_ITENS_AD (');
       Query.SQL.Add('  ID_PEDIDO,');

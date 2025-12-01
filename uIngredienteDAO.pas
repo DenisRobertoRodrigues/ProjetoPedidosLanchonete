@@ -12,18 +12,15 @@ uses
 type
   TIngredienteDAO = class
   private
-    //FConnection: TFDConnection;
+
   public
-    //constructor Create(AConnection: TFDConnection);
-    
     function Inserir(Ingrediente: TIngrediente): Boolean;
     function Atualizar(Ingrediente: TIngrediente): Boolean;
     function Excluir(ID: Integer): Boolean;
     function BuscarPorID(ID: Integer): TIngrediente;
     function BuscarPorNome(const Nome: string): TIngrediente;
     function ListarTodos(ApenasAtivos: Boolean = True): TObjectList<TIngrediente>;
-    
-    //property Connection: TFDConnection read FConnection write FConnection;
+
   end;
 
 implementation
@@ -31,12 +28,6 @@ implementation
 { TIngredienteDAO }
 
 uses UDMDTO;
-
-{constructor TIngredienteDAO.Create(AConnection: TFDConnection);
-begin
-  inherited Create;
-  FConnection := AConnection;
-end;  }
 
 function TIngredienteDAO.Inserir(Ingrediente: TIngrediente): Boolean;
 var
@@ -56,8 +47,7 @@ begin
     Query.SQL.Add('VALUES (:NOME, :IMAGEM, :VALOR, :ATIVO)');
     
     Query.ParamByName('NOME').AsString := Ingrediente.Nome;
-    
-    // Gravar imagem como BLOB
+
     if Ingrediente.TemImagem then
     begin
       Ingrediente.Imagem.Position := 0;
@@ -71,8 +61,7 @@ begin
     
     try
       Query.ExecSQL;
-      
-      // Recuperar o ID gerado
+
       Query.SQL.Clear;
       Query.SQL.Add('SELECT last_insert_rowid() AS ID');
       Query.Open;
@@ -110,8 +99,7 @@ begin
     Query.SQL.Add('WHERE ID = :ID');
     
     Query.ParamByName('NOME').AsString := Ingrediente.Nome;
-    
-    // Atualizar imagem como BLOB
+
     if Ingrediente.TemImagem then
     begin
       Ingrediente.Imagem.Position := 0;
@@ -184,8 +172,7 @@ begin
       Result.Valor := Query.FieldByName('VALOR').AsFloat;
       Result.DataCadastro := Query.FieldByName('DATA_CADASTRO').AsDateTime;
       Result.Ativo := Query.FieldByName('ATIVO').AsBoolean;
-      
-      // Carregar imagem do BLOB
+
       if not Query.FieldByName('IMAGEM').IsNull then
       begin
         BlobStream := Query.CreateBlobStream(Query.FieldByName('IMAGEM'), bmRead);
@@ -225,8 +212,7 @@ begin
       Result.Valor := Query.FieldByName('VALOR').AsFloat;
       Result.DataCadastro := Query.FieldByName('DATA_CADASTRO').AsDateTime;
       Result.Ativo := Query.FieldByName('ATIVO').AsBoolean;
-      
-      // Carregar imagem do BLOB
+
       if not Query.FieldByName('IMAGEM').IsNull then
       begin
         BlobStream := Query.CreateBlobStream(Query.FieldByName('IMAGEM'), bmRead);
@@ -271,8 +257,7 @@ begin
       Ingrediente.Valor := Query.FieldByName('VALOR').AsFloat;
       Ingrediente.DataCadastro := Query.FieldByName('DATA_CADASTRO').AsDateTime;
       Ingrediente.Ativo := Query.FieldByName('ATIVO').AsBoolean;
-      
-      // Carregar imagem do BLOB (apenas se existir)
+
       if not Query.FieldByName('IMAGEM').IsNull then
       begin
         BlobStream := Query.CreateBlobStream(Query.FieldByName('IMAGEM'), bmRead);

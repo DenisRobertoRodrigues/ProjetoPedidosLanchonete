@@ -114,14 +114,12 @@ begin
   FImgProduto.Stretch := True;
   FImgProduto.Proportional := True;
   FImgProduto.Center := True;
-  
-  // Carregar imagem se existir
+
   if Produto.TemImagem then
   begin
     try
       Produto.Imagem.Position := 0;
-      
-      // Tentar JPEG
+
       try
         JPEGImage := TJPEGImage.Create;
         try
@@ -131,7 +129,6 @@ begin
           JPEGImage.Free;
         end;
       except
-        // Tentar PNG
         Produto.Imagem.Position := 0;
         try
           PNGImage := TPngImage.Create;
@@ -142,7 +139,6 @@ begin
             PNGImage.Free;
           end;
         except
-          // Tentar Bitmap
           Produto.Imagem.Position := 0;
           try
             Bitmap := TBitmap.Create;
@@ -153,7 +149,6 @@ begin
               Bitmap.Free;
             end;
           except
-            // Imagem padrão se falhar
             FPnlImagem.Color := $00F0F0F0;
           end;
         end;
@@ -164,11 +159,9 @@ begin
   end
   else
   begin
-    // Sem imagem - fundo cinza claro
     FPnlImagem.Color := $00F0F0F0;
   end;
-  
-  // Painel de informações
+
   FPnlInfo := TPanel.Create(Self);
   FPnlInfo.Parent := Self;
   FPnlInfo.Align := alClient;
@@ -178,8 +171,7 @@ begin
   FPnlInfo.Padding.Top := 8;
   FPnlInfo.Padding.Right := 8;
   FPnlInfo.Padding.Bottom := 8;
-  
-  // Nome do produto
+
   FLblNome := TLabel.Create(Self);
   FLblNome.Parent := FPnlInfo;
   FLblNome.Align := alTop;
@@ -190,26 +182,25 @@ begin
   FLblNome.Height := 30;
   FLblNome.Layout := tlCenter;
   FLblNome.WordWrap := True;
-  
-  // Painel de valores
+
   FPnlValores := TPanel.Create(Self);
   FPnlValores.Parent := FPnlInfo;
   FPnlValores.Align := alTop;
   FPnlValores.Height := 50;
   FPnlValores.BevelOuter := bvNone;
   FPnlValores.Color := clWhite;
-  
-  // Valor em Real
+
+
   FLblValorReal := TLabel.Create(Self);
   FLblValorReal.Parent := FPnlValores;
   FLblValorReal.Align := alTop;
   FLblValorReal.Caption := FormatFloat('R$ #,##0.00', Produto.Valor);
   FLblValorReal.Font.Size := 16;
   FLblValorReal.Font.Style := [fsBold];
-  FLblValorReal.Font.Color := $00008000; // Verde escuro
+  FLblValorReal.Font.Color := $00008000;
   FLblValorReal.Height := 25;
-  
-  // Valor em Dólar
+
+
   ValorDolar := Produto.Valor / CotacaoDolar;
   FLblValorDolar := TLabel.Create(Self);
   FLblValorDolar.Parent := FPnlValores;
@@ -219,8 +210,8 @@ begin
   FLblValorDolar.Font.Style := [];
   FLblValorDolar.Font.Color := clGray;
   FLblValorDolar.Height := 20;
-  
-  // Ingredientes
+
+
   Ingredientes := '';
   for ProdutoIngrediente in Produto.Ingredientes do
   begin
@@ -254,11 +245,9 @@ end;
 
 procedure TFormMenu.FormCreate(Sender: TObject);
 begin
-  FProdutoDAO := TProdutoDAO.Create(DMDTO.FDConexao);
   FListaProdutos := TObjectList<TProduto>.Create;
   FListaPaineis := TList.Create;
-  
-  // Cotação padrão do dólar
+
   FCotacaoDolar := 5.50; // inserir busca API aqui
 
   CarregarProdutos;
@@ -275,7 +264,6 @@ end;
 
 procedure TFormMenu.FormResize(Sender: TObject);
 begin
-  // Reorganizar os painéis ao redimensionar
   if Assigned(FListaProdutos) and (FListaProdutos.Count > 0) then
     ExibirProdutos;
 end;
@@ -314,8 +302,7 @@ begin
   LimparPaineis;
   
   Filtro := UpperCase(Trim(edtFiltro.Text));
-  
-  // Calcular quantas colunas cabem
+
   LarguraPainel := 350;
   AlturaPainel := 420;
   EspacoHorizontal := 15;
@@ -329,19 +316,17 @@ begin
   for I := 0 to FListaProdutos.Count - 1 do
   begin
     Produto := FListaProdutos[I];
-    
-    // Aplicar filtro
+
     if (Filtro <> '') and (Pos(Filtro, UpperCase(Produto.Nome)) = 0) then
       Continue;
-    
-    // Criar painel do produto
+
     Painel := TPainelProduto.Create(ScrollBox, Produto, FCotacaoDolar);
     Painel.Left := 10 + (Coluna * (LarguraPainel + EspacoHorizontal));
     Painel.Top := 10 + (Linha * (AlturaPainel + EspacoVertical));
     
     FListaPaineis.Add(Painel);
-    
-    // Calcular próxima posição
+
+
     Inc(Coluna);
     if Coluna >= ColunasVisiveis then
     begin
@@ -349,8 +334,8 @@ begin
       Inc(Linha);
     end;
   end;
-  
-  // Ajustar altura do ScrollBox se necessário
+
+
   if FListaPaineis.Count > 0 then
   begin
     ScrollBox.VertScrollBar.Range := (Linha + 1) * (AlturaPainel + EspacoVertical) + 20;

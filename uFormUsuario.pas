@@ -328,7 +328,6 @@ begin
   try
     if FUsuarioAtual.ID = 0 then
     begin
-      // Inserir novo usuário
       if FUsuarioDAO.Inserir(FUsuarioAtual) then
       begin
         ShowMessage('Usuário cadastrado com sucesso!');
@@ -338,7 +337,6 @@ begin
     end
     else
     begin
-      // Atualizar usuário existente
       if FUsuarioDAO.Atualizar(FUsuarioAtual) then
       begin
         ShowMessage('Usuário atualizado com sucesso!');

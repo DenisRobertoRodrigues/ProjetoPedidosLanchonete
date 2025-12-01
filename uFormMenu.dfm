@@ -135,6 +135,5 @@ object FormMenu: TFormMenu
     Color = clWhite
     ParentColor = False
     TabOrder = 2
-    ExplicitTop = 101
   end
 end

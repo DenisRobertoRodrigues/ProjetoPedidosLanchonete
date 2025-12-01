@@ -1,4 +1,4 @@
-unit uPedido;
+﻿unit uPedido;
 
 interface
 
@@ -11,7 +11,7 @@ type
     FIDIngrediente: Integer;
     FNomeIngrediente: string;
     FValorIngrediente: Double;
-    FRemovido: Boolean; // True = ingrediente removido, False = adicionado
+    FRemovido: Boolean;
   public
     property IDIngrediente: Integer read FIDIngrediente write FIDIngrediente;
     property NomeIngrediente: string read FNomeIngrediente write FNomeIngrediente;
@@ -151,8 +151,7 @@ var
   Ingrediente: TItemPedidoIngrediente;
 begin
   Result := FValorUnitarioOriginal;
-  
-  // Percorrer personalizações
+
   for Ingrediente in FIngredientesPersonalizados do
   begin
     if Ingrediente.Removido then
@@ -160,8 +159,7 @@ begin
     else
       Result := Result + Ingrediente.ValorIngrediente; // Soma ingrediente adicionado
   end;
-  
-  // Não permitir valor negativo
+
   if Result < 0 then
     Result := 0;
 end;

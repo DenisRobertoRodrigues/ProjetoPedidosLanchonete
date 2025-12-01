@@ -344,7 +344,6 @@ begin
   try
     if FClienteAtual.ID = 0 then
     begin
-      // Inserir novo cliente
       if FClienteDAO.Inserir(FClienteAtual) then
       begin
         ShowMessage('Cliente cadastrado com sucesso!');
@@ -354,7 +353,6 @@ begin
     end
     else
     begin
-      // Atualizar cliente existente
       if FClienteDAO.Atualizar(FClienteAtual) then
       begin
         ShowMessage('Cliente atualizado com sucesso!');
@@ -391,13 +389,11 @@ end;
 
 procedure TFormCliente.edtDocumentoExit(Sender: TObject);
 begin
-  // Formatar documento ao sair do campo
   edtDocumento.Text := FormatarDocumento(edtDocumento.Text);
 end;
 
 procedure TFormCliente.edtDocumentoKeyPress(Sender: TObject; var Key: Char);
 begin
-  // Permitir apenas números e teclas de controle
   if not (CharInSet(Key, ['0'..'9', #8, #9])) then
     Key := #0;
 end;

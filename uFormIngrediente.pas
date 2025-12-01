@@ -86,7 +86,7 @@ var
 implementation
 
 uses
-  uDMDTO; // Unit do DataModule onde está a conexão
+  uDMDTO;
 
 {$R *.dfm}
 
@@ -97,8 +97,7 @@ end;
 
 procedure TFormIngrediente.FormCreate(Sender: TObject);
 begin
-  // Criar o DAO usando a conexão existente
-  //FIngredienteDAO := TIngredienteDAO.Create(DMDTO.FDConexao);
+
   FIngredienteAtual := TIngrediente.Create;
   FListaIngredientes := TObjectList<TIngrediente>.Create;
   
@@ -107,11 +106,10 @@ begin
   
   PageControl1.ActivePage := tsLista;
   
-  // Configurar o diálogo de abertura de imagem
+
   OpenPictureDialog.Filter := 'Imagens|*.jpg;*.jpeg;*.png;*.bmp;*.gif|Todos os arquivos|*.*';
   OpenPictureDialog.Title := 'Selecionar Imagem do Ingrediente';
-  
-  // Configurar propriedades da imagem
+
   imgIngrediente.Stretch := True;
   imgIngrediente.Proportional := True;
   imgIngrediente.Center := True;
@@ -164,8 +162,7 @@ begin
   for I := 0 to FListaIngredientes.Count - 1 do
   begin
     Ingrediente := FListaIngredientes[I];
-    
-    // Aplicar filtro se houver
+
     if (Filtro <> '') and 
        (Pos(Filtro, UpperCase(Ingrediente.Nome)) = 0) then
       Continue;
@@ -206,8 +203,7 @@ begin
   FIngredienteAtual.Nome := Ingrediente.Nome;
   FIngredienteAtual.Valor := Ingrediente.Valor;
   FIngredienteAtual.Ativo := Ingrediente.Ativo;
-  
-  // Copiar imagem
+
   FIngredienteAtual.Imagem.Clear;
   if Ingrediente.TemImagem then
   begin
@@ -322,7 +318,6 @@ function TFormIngrediente.FormatarValor(const Valor: string): Double;
 var
   ValorFormatado: string;
 begin
-  // Remove pontos e substitui vírgula por ponto
   ValorFormatado := StringReplace(Valor, '.', '', [rfReplaceAll]);
   ValorFormatado := StringReplace(ValorFormatado, ',', '.', [rfReplaceAll]);
   
@@ -428,7 +423,6 @@ begin
   try
     if FIngredienteAtual.ID = 0 then
     begin
-      // Inserir novo ingrediente
       if FIngredienteDAO.Inserir(FIngredienteAtual) then
       begin
         ShowMessage('Ingrediente cadastrado com sucesso!');
@@ -438,7 +432,6 @@ begin
     end
     else
     begin
-      // Atualizar ingrediente existente
       if FIngredienteDAO.Atualizar(FIngredienteAtual) then
       begin
         ShowMessage('Ingrediente atualizado com sucesso!');
@@ -503,7 +496,6 @@ end;
 
 procedure TFormIngrediente.edtValorKeyPress(Sender: TObject; var Key: Char);
 begin
-  // Permitir apenas números, vírgula, ponto e teclas de controle
   if not (CharInSet(Key, ['0'..'9', ',', '.', #8, #9])) then
     Key := #0;
 end;

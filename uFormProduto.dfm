@@ -274,7 +274,7 @@ object FormProduto: TFormProduto
             Top = 0
             Width = 250
             Height = 150
-            ItemHeight = 17
+            ItemHeight = 15
             TabOrder = 0
           end
           object btnAdicionarIngrediente: TButton
